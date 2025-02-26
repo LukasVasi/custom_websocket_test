@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cho7fcl7esirm"]
+
+[ext_resource type="Script" path="res://test.gd" id="1_q531j"]
+[ext_resource type="Texture2D" uid="uid://bmo33wokx0tpo" path="res://icon.svg" id="2_h5brs"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_elpua"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
+[node name="Main" type="Node"]
+
+[node name="Game" type="Node" parent="."]
+
+[node name="WebGame" type="Node" parent="Game"]
+script = ExtResource("1_q531j")
+with_custom_api = true
+
+[node name="Map" type="Node" parent="Game/WebGame"]
+
+[node name="Visuals" type="Sprite2D" parent="Game/WebGame/Map"]
+position = Vector2(600, 80)
+texture = ExtResource("2_h5brs")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="Game/WebGame/Map/Visuals"]
+replication_config = SubResource("SceneReplicationConfig_elpua")
