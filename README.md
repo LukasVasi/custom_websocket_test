@@ -1,1 +1,3 @@
-# custom_websocket_test
+# Custom Multiplayer API Multiplayer Synchronizer test
+When working on my project that is supposed to support two different clients using different peers by creating a branch with custom multiplayer api for each I ran into a synchronization issue. As a sanity check I removed features of my network setup until it worked. I distilled that part of the project to this version that clearly shows my issue - when the custom multiplayer api is set synchronization no longer works, when it isn't - the movement of the sprite is synched. 
+To run the project you can simply launch the debugger which will run the server (without a viewport) and a client. To change the use of custom multiplayer api use the exported bool on the WebGame node.
