@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cho7fcl7esirm"]
+[gd_scene load_steps=5 format=3 uid="uid://cho7fcl7esirm"]
 
 [ext_resource type="Script" path="res://test.gd" id="1_q531j"]
+[ext_resource type="PackedScene" uid="uid://did6pnrql4toe" path="res://added_later.tscn" id="2_0l30i"]
 [ext_resource type="Texture2D" uid="uid://bmo33wokx0tpo" path="res://icon.svg" id="2_h5brs"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_elpua"]
@@ -14,13 +15,13 @@ properties/0/replication_mode = 1
 
 [node name="WebGame" type="Node" parent="Game"]
 script = ExtResource("1_q531j")
-with_custom_api = true
+added_later_scene = ExtResource("2_0l30i")
 
-[node name="Map" type="Node" parent="Game/WebGame"]
+[node name="InitiallyInTree" type="Node" parent="Game/WebGame"]
 
-[node name="Visuals" type="Sprite2D" parent="Game/WebGame/Map"]
-position = Vector2(600, 80)
+[node name="Visuals" type="Sprite2D" parent="Game/WebGame/InitiallyInTree"]
+position = Vector2(1000, 80)
 texture = ExtResource("2_h5brs")
 
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="Game/WebGame/Map/Visuals"]
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="Game/WebGame/InitiallyInTree/Visuals"]
 replication_config = SubResource("SceneReplicationConfig_elpua")
